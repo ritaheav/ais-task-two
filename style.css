@@ -177,7 +177,7 @@ p {
     cursor: pointer;
     overflow-y: scroll;
     height: auto;
-    max-height: calc(100vh - 320px);
+    max-height: calc(100vh - 330px);
     margin-right: -4px;
 }
 .chat-list-wrapper {
