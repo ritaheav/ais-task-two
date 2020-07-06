@@ -1,13 +1,22 @@
 body {
     margin: 0;
 }
+h3, p {
+    font-family: 'Poppins', sans-serif;
+    color: #444444;
+}
+.chat-messages span {
+    color: #444444;
+}
 .wrapper {
     width: 100%;
     display: flex;
 }
 .chat-users {
     width: 20%;
-    padding: 15px;
+    min-width: 327px;
+    /* padding: 15px; */
+    padding: 15px 5px;
     background-color: #eaf0f7;
 }
 .chat-messages {
@@ -120,10 +129,7 @@ p {
     flex-flow: column;
     cursor: pointer;
 }
-.chat-menu-chats {
-    color: rgb(62, 62, 248);
-}
-.chat-menu-calls,
+.chat-menu-calls, .chat-menu-chats,
 .chat-menu-contacts, .chat-menu-notifications, .text-message {
     color: grey;
     cursor: pointer;
@@ -169,9 +175,10 @@ p {
     list-style: none;
     padding-left: 0;
     cursor: pointer;
-    overflow-y: hidden;
+    overflow-y: scroll;
     height: auto;
-    max-height: calc(100vh - 310px);
+    max-height: calc(100vh - 320px);
+    margin-right: -4px;
 }
 .chat-list-wrapper {
     display: flex;
@@ -204,6 +211,7 @@ p {
 }
 .chat-messages-main {
     padding: 15px;
+    padding-right: 0;
 }
 .chat-messages-main-info-profile {
     display: flex;
@@ -230,6 +238,7 @@ p {
 }
 .chat-messages-main-info-head-icons {
     width: 15%;
+    padding-right: 15px;
 }
 .active-now {
     width: 10px;
@@ -245,7 +254,7 @@ p {
     cursor: pointer;
 }
 .chat-messages-main-info-head {
-    width: 21%;
+    width: 23%;
     cursor: pointer;
 }
 .chat-messages-main-info-profile-gallery {
@@ -276,7 +285,7 @@ h3 {
     margin-top: 5px;
 }
 .chat-messages-main-aria {
-    height: calc(100vh - 170px);
+    height: calc(100vh - 190px);
     overflow-y: scroll;
     padding-right: 10px;
     box-sizing: border-box;
@@ -353,6 +362,7 @@ h3 {
     border: none;
     cursor: pointer;
     display: flex;
+    outline: none;
 }
 .btn-smile span {
     font-size: 30px;
@@ -367,15 +377,19 @@ h3 {
     align-items: center;
     justify-content: space-between;
 }
-hr {
-    margin-left: -15px;
-    margin-right: -15px;
+.chat-users hr {
+    margin-left: -5px;
+    margin-right: -5px;
     margin-top: 10px;
+}
+.chat-messages hr {
+    margin-top: 10px;
+    margin-left: -15px;
 }
 .add-file-on-mobile {
     display: none;
 }
-.chat-menu-calls span:hover, .chat-menu-contacts span:hover, .chat-menu-notifications span:hover{
+.chat-menu-chats:hover, .chat-menu-calls span:hover, .chat-menu-contacts span:hover, .chat-menu-notifications span:hover{
     color: black;
 }
 .chat-list li:hover {
@@ -391,24 +405,23 @@ hr {
 .upload-file:hover, .upload-media:hover, .send-voice-msg:hover, .upload-other:hover {
     background-color: rgb(211, 211, 211);
 }
-
-.chat-list > ul:hover{
-    overflow-y: auto;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-    -moz-overflow-scrolling: touch;
-    -ms-overflow-scrolling: touch;
-    -o-overflow-scrolling: touch;
-    overflow-scrolling: touch;
+.chat-list ul::-webkit-scrollbar,
+.chat-messages-main-aria::-webkit-scrollbar  {
+    width: 3px;
 }
-.chat-listn > ul::-webkit-scrollbar {
-    -webkit-appearance: none;
-    width: 7px;
+.chat-list ul::-webkit-scrollbar-track,
+.chat-messages-main-aria::-webkit-scrollbar-track {
+    box-shadow: 0 0 1px rgba(255,255,255,0.5);
+} 
+.chat-list ul::-webkit-scrollbar-thumb,
+.chat-messages-main-aria::-webkit-scrollbar-thumb {
+    border-color: #555;
+    background-color: #777;
+    outline: 1px solid slategrey;
+    border-radius: 10px;
 }
-.chat-list > ul::-webkit-scrollbar-thumb {
-    border-radius: 2px;
-    background-color: rgba(0,0,0,0.5);
-    -webkit-box-shadow: 0 0 1px rgba(255,255,255,0.5);
+.chat-menu p, .how-much-msg p {
+    font-size: 11px;
 }
 
 @media(max-width: 1200px) {
@@ -422,9 +435,6 @@ hr {
     .form-search {
         padding-left: 24px;
         font-size: 10px;
-    }
-    p {
-        font-size: 9px;
     }
     .chat-messages-main-info-head {
         width: 35%;
